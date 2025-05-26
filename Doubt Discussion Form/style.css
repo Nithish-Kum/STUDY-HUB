@@ -1,0 +1,484 @@
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  padding: 20px;
+  color: #333;
+}
+
+/* Container Styles */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Header Styles */
+h2 {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  text-align: center;
+  padding: 30px 20px;
+  font-size: 2.2rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin: 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Form Styles */
+#doubtForm {
+  padding: 40px;
+  background: #ffffff;
+}
+
+/* Label Styles */
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 0.95rem;
+  letter-spacing: 0.3px;
+}
+
+/* Input, Select, and Textarea Common Styles */
+input[type="text"],
+input[type="file"],
+select,
+textarea {
+  width: 100%;
+  padding: 15px 18px;
+  border: 2px solid #e1e8ed;
+  border-radius: 12px;
+  font-size: 1rem;
+  margin-bottom: 25px;
+  transition: all 0.3s ease;
+  background: #f8f9fa;
+  font-family: inherit;
+}
+
+input[type="text"]:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #667eea;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Placeholder Styles */
+input::placeholder,
+textarea::placeholder {
+  color: #95a5a6;
+  font-style: italic;
+}
+
+/* Select Dropdown Styling */
+select {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 12px center;
+  background-repeat: no-repeat;
+  background-size: 16px;
+  padding-right: 45px;
+  appearance: none;
+}
+
+/* Textarea Specific */
+textarea {
+  resize: vertical;
+  min-height: 120px;
+  line-height: 1.6;
+}
+
+/* File Input Styling */
+input[type="file"] {
+  padding: 12px 18px;
+  background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+  border: 2px dashed #667eea;
+  cursor: pointer;
+  position: relative;
+}
+
+input[type="file"]:hover {
+  background: linear-gradient(45deg, #e9ecef, #dee2e6);
+  border-color: #5a67d8;
+}
+
+/* Checkbox and Radio Button Styles */
+input[type="checkbox"],
+input[type="radio"] {
+  width: auto;
+  margin-right: 10px;
+  margin-bottom: 0;
+  transform: scale(1.2);
+  accent-color: #667eea;
+}
+
+/* Checkbox and Radio Labels */
+label:has(input[type="checkbox"]),
+label:has(input[type="radio"]) {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 10px 0;
+  transition: color 0.3s ease;
+}
+
+label:has(input[type="checkbox"]):hover,
+label:has(input[type="radio"]):hover {
+  color: #667eea;
+}
+
+/* Radio Button Group */
+label:has(input[type="radio"]) {
+  display: inline-flex;
+  margin-right: 25px;
+  margin-bottom: 10px;
+  background: #f8f9fa;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid #e1e8ed;
+  transition: all 0.3s ease;
+}
+
+label:has(input[type="radio"]):hover {
+  background: #e9ecef;
+  border-color: #667eea;
+}
+
+label:has(input[type="radio"]:checked) {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border-color: #667eea;
+}
+
+/* Submit Button */
+button[type="submit"] {
+  width: 100%;
+  padding: 18px 30px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 20px;
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+}
+
+button[type="submit"]:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(102, 126, 234, 0.4);
+  background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+}
+
+button[type="submit"]:active {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 15px rgba(102, 126, 234, 0.3);
+}
+
+/* Form Section Grouping */
+.form-section {
+  margin-bottom: 35px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid #e1e8ed;
+}
+
+.form-section:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+/* Priority Select Special Styling */
+#priority {
+  background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+}
+
+/* Tags Input Special Styling */
+#tags {
+  border-color: #17a2b8;
+  background: linear-gradient(45deg, #f8f9fa, #e6f7ff);
+}
+
+#tags:focus {
+  border-color: #17a2b8;
+  box-shadow: 0 0 0 3px rgba(23, 162, 184, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+  
+  .container {
+    border-radius: 15px;
+    margin: 10px auto;
+  }
+  
+  h2 {
+    font-size: 1.8rem;
+    padding: 25px 15px;
+  }
+  
+  #doubtForm {
+    padding: 25px;
+  }
+  
+  label:has(input[type="radio"]) {
+    display: flex;
+    margin-right: 0;
+    margin-bottom: 12px;
+    width: 100%;
+  }
+  
+  input[type="text"],
+  select,
+  textarea {
+    padding: 12px 15px;
+  }
+  
+  button[type="submit"] {
+    padding: 15px 25px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  #doubtForm {
+    padding: 20px;
+  }
+  
+  input[type="text"],
+  select,
+  textarea {
+    padding: 10px 12px;
+    margin-bottom: 20px;
+  }
+}
+
+/* Loading Animation for Form Submission */
+button[type="submit"].loading {
+  background: #95a5a6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+button[type="submit"].loading::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  border: 2px solid transparent;
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  display: inline-block;
+  margin-left: 10px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Success Message Styling */
+.success-message {
+  background: linear-gradient(135deg, #28a745, #20c997);
+  color: white;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  text-align: center;
+  font-weight: 600;
+  box-shadow: 0 8px 20px rgba(40, 167, 69, 0.3);
+  animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Focus Indicators for Accessibility */
+*:focus {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+input[type="checkbox"]:focus,
+input[type="radio"]:focus {
+  outline-offset: 0;
+}
+
+/* Hover Effects for Better UX */
+.container:hover {
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
+/* Custom Scrollbar for Textarea */
+textarea::-webkit-scrollbar {
+  width: 8px;
+}
+
+textarea::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+textarea::-webkit-scrollbar-thumb {
+  background: #667eea;
+  border-radius: 4px;
+}
+
+textarea::-webkit-scrollbar-thumb:hover {
+  background: #5a67d8;
+}
+.doubt-list {
+  padding: 30px;
+}
+
+.doubt-card {
+  background: #f4f7ff;
+  border: 1px solid #d6dfff;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.doubt-card h3 {
+  margin-bottom: 10px;
+  color: #2c3e50;
+}
+
+.doubt-card p {
+  margin: 5px 0;
+  font-size: 0.95rem;
+  color: #34495e;
+}
+
+.doubt-card .tags {
+  font-style: italic;
+  color: #6c757d;
+  margin-top: 10px;
+}
+
+.doubt-card .meta {
+  font-size: 0.85rem;
+  color: #888;
+}
+
+.doubt-card .highlight {
+  font-weight: bold;
+  color: #5a67d8;
+}
+.answer-form {
+  margin-top: 15px;
+  padding: 10px;
+  border-top: 1px dashed #ccc;
+}
+
+.answer-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.answer-form input[type="text"] {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-right: 10px;
+}
+
+.answer-form button {
+  padding: 8px 16px;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.answer-list p {
+  padding: 6px;
+  background: #f1f1f9;
+  border-radius: 6px;
+  margin-top: 6px;
+}
+.answer-item {
+  background: #eef1ff;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.answer-item button {
+  margin-right: 10px;
+  background: #5a67d8;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.answer-item button:hover {
+  background: #4c51bf;
+}
+.main-container {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 20px;
+}
+
+.left-column, .right-column {
+  flex: 1;
+  min-width: 350px;
+}
