@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task History</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>📜 Task History</h1>
+    <div id="historyList"></div>
+    <a href="index.html">← Back to Planner</a>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyD8QJpHQ-DFq0Jp0Z1XGmtYpGY70PsdA0k",
+      authDomain: "timetable-3bf8f.firebaseapp.com",
+      projectId: "timetable-3bf8f",
+      storageBucket: "timetable-3bf8f.firebasestorage.app",
+      messagingSenderId: "1009639887962",
+      appId: "1:1009639887962:web:03417dcac2399c40623463"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+
+    let currentUser = null;
+    firebase.auth().onAuthStateChanged(async (user) => {
+      if (user) {
+        currentUser = user;
+        loadHistory();
+      } else {
+        await firebase.auth().signInAnonymously();
+      }
+    });
+
+    async function loadHistory() {
+      const container = document.getElementById('historyList');
+      container.innerHTML = "";
+      const snapshot = await db.collection("users").doc(currentUser.uid).collection("tasks").get();
+      snapshot.forEach(doc => {
+        const task = doc.data();
+        const div = document.createElement('div');
+        div.className = 'task-card';
+        div.innerHTML = `
+          <h3>${task.title}</h3>
+          <p><strong>When:</strong> ${new Date(task.datetime).toLocaleString()}</p>
+          <p><strong>Status:</strong> ${task.status}</p>
+        `;
+        container.appendChild(div);
+      });
+    }
+  </script>
+</body>
+</html>

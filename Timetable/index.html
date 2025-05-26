@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simple Task Planner</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="container">
+    <h1>📝 Task Scheduler</h1>
+    <div class="task-form">
+      <input type="text" id="title" placeholder="Task title" />
+      <input type="datetime-local" id="datetime" />
+      <select id="type">
+        <option value="class">Class</option>
+        <option value="task">Task</option>
+        <option value="goal">Goal</option>
+      </select>
+      <select id="priority">
+        <option value="normal">Normal</option>
+        <option value="high">High ⭐</option>
+        <option value="exam">Exam ⚠️</option>
+      </select>
+      <button class="add-btn" onclick="addTask()" disabled>Add Task</button>
+    </div>
+    <div class="summary-bar">
+      <p>Total Tasks: <span id="total-count">0</span></p>
+      <p>✅ Done: <span id="done-count">0</span></p>
+      <p>❌ Failed: <span id="failed-count">0</span></p>
+      <p>⏳ Pending: <span id="pending-count">0</span></p>
+    </div>
+
+    <div id="taskList"></div>
+    <div style="text-align:center;margin-top:2rem;"><a href="task_history.html" class="history-link">📜 See your
+        history</a></div>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
