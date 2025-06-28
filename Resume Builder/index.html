@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Resume Builder</title>
+      <link rel="stylesheet" href="style.css" />
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+      <script src="script.js" defer></script>
+</head>
+
+<body>
+      <div class="resume-container">
+            <!-- Header -->
+            <div class="header">
+                  <i class="fas fa-file-alt header-icon"></i>
+                  <h1>Resume Builder</h1>
+                  <p>Create, analyze, and optimize your resume with advanced tools</p>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="progress-container">
+                  <div class="progress-bar" id="progress-bar"></div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="main-content">
+                  <!-- Step 1: Basic Information -->
+                  <section class="form-section active" id="basic-info" data-step="1">
+                        <div class="section-header">
+                              <i class="fas fa-user section-icon"></i>
+                              <h2>Basic Information</h2>
+                        </div>
+                        <div class="form-grid">
+                              <div class="input-group">
+                                    <label for="name">Full Name *</label>
+                                    <input type="text" id="name" placeholder="Enter your full name" required />
+                                    <span class="input-icon"><i class="fas fa-user"></i></span>
+                              </div>
+                              <div class="input-group">
+                                    <label for="email">Email Address *</label>
+                                    <input type="email" id="email" placeholder="your.email@example.com" required />
+                                    <span class="input-icon"><i class="fas fa-envelope"></i></span>
+                              </div>
+                              <div class="input-group">
+                                    <label for="phone">Phone Number *</label>
+                                    <input type="tel" id="phone" placeholder="+1 (555) 123-4567" required />
+                                    <span class="input-icon"><i class="fas fa-phone"></i></span>
+                              </div>
+                              <div class="input-group">
+                                    <label for="location">Location</label>
+                                    <input type="text" id="location" placeholder="City, State/Country" />
+                                    <span class="input-icon"><i class="fas fa-map-marker-alt"></i></span>
+                              </div>
+                              <div class="input-group">
+                                    <label for="linkedin">LinkedIn Profile</label>
+                                    <input type="url" id="linkedin" placeholder="https://linkedin.com/in/yourprofile" required />
+
+                                    <span class="input-icon"><i class="fab fa-linkedin"></i></span>
+                              </div>
+                              <div class="input-group">
+                                    <label for="portfolio">Portfolio/Website</label>
+                                    <input type="url" id="portfolio" placeholder="https://yourwebsite.com" />
+                                    <span class="input-icon"><i class="fas fa-globe"></i></span>
+                              </div>
+                        </div>
+                  </section>
+
+                  <!-- Step 2: Professional Summary -->
+                  <section class="form-section" id="summary" data-step="2">
+                        <div class="section-header">
+                              <i class="fas fa-align-left section-icon"></i>
+                              <h2>Professional Summary</h2>
+                        </div>
+                        <div class="input-group">
+                              <label for="summary-text">Professional Summary</label>
+                              <textarea id="summary-text" rows="4"
+                                    placeholder="Write a compelling 2-3 sentence summary highlighting your key qualifications and career objectives..."></textarea>
+                              <div class="char-counter">
+                                    <span id="summary-count">0</span>/300 characters
+                              </div>
+                        </div>
+                  </section>
+
+                  <!-- Step 3: Work Experience -->
+                  <section class="form-section" id="experience" data-step="3">
+                        <div class="section-header">
+                              <i class="fas fa-briefcase section-icon"></i>
+                              <h2>Work Experience</h2>
+                              <button type="button" class="add-btn" onclick="addExperience()">
+                                    <i class="fas fa-plus"></i> Add Experience
+                              </button>
+                        </div>
+                        <div id="experience-container">
+                              <div class="experience-item">
+                                    <div class="form-grid">
+                                          <div class="input-group">
+                                                <label>Are you a fresher or experienced?</label>
+                                                <div class="checkbox-group">
+                                                      <label><input type="radio" name="experience-type" value="fresher"
+                                                                  onchange="toggleExperienceSection()"> Fresher</label>
+                                                      <label><input type="radio" name="experience-type"
+                                                                  value="experienced"
+                                                                  onchange="toggleExperienceSection()" checked>
+                                                            Experienced</label>
+                                                </div>
+                                          </div>
+
+                                          <div class="input-group">
+                                                <label>Job Title *</label>
+                                                <input type="text" class="job-title"
+                                                      placeholder="e.g., Software Engineer" required />
+                                          </div>
+                                          <div class="input-group">
+                                                <label>Company Name *</label>
+                                                <input type="text" class="company-name" placeholder="e.g., Tech Corp"
+                                                      required />
+                                          </div>
+                                          <div class="input-group">
+                                                <label>Start Date</label>
+                                                <input type="month" class="start-date" />
+                                          </div>
+                                          <div class="input-group">
+                                                <label>End Date</label>
+                                                <input type="month" class="end-date" />
+                                                <div class="checkbox-group">
+                                                      <input type="checkbox" class="current-job" />
+                                                      <label>Currently working here</label>
+                                                </div>
+                                          </div>
+                                    </div>
+                                    <div class="input-group">
+                                          <label>Job Description & Achievements</label>
+                                          <textarea class="job-description" rows="4"
+                                                placeholder="• Describe your key responsibilities and achievements&#10;• Use bullet points and action verbs&#10;• Quantify results where possible (e.g., increased sales by 25%)"></textarea>
+                                    </div>
+                                    <button type="button" class="remove-btn" onclick="removeExperience(this)">
+                                          <i class="fas fa-trash"></i> Remove
+                                    </button>
+                              </div>
+                        </div>
+                  </section>
+
+                  <!-- Step 4: Education -->
+                  <section class="form-section" id="education" data-step="4">
+                        <div class="section-header">
+                              <i class="fas fa-graduation-cap section-icon"></i>
+                              <h2>Education</h2>
+                              <button type="button" class="add-btn" onclick="addEducation()">
+                                    <i class="fas fa-plus"></i> Add Education
+                              </button>
+                        </div>
+                        <div id="education-container">
+                              <div class="education-item">
+                                    <div class="form-grid">
+                                          <div class="input-group">
+                                                <label>Degree *</label>
+                                                <input type="text" class="degree"
+                                                      placeholder="e.g., Bachelor of Science" required />
+                                          </div>
+                                          <div class="input-group">
+                                                <label>Field of Study *</label>
+                                                <input type="text" class="field-of-study"
+                                                      placeholder="e.g., Computer Science" required />
+                                          </div>
+                                          <div class="input-group">
+                                                <label>Institution *</label>
+                                                <input type="text" class="institution"
+                                                      placeholder="e.g., University of Technology" required />
+                                          </div>
+                                          <div class="input-group">
+                                                <label>Graduation Year</label>
+                                                <input type="number" class="graduation-year" min="1950" max="2030"
+                                                      placeholder="2024" />
+                                          </div>
+                                          <div class="input-group">
+                                                <label>GPA (Optional)</label>
+                                                <input type="number" class="gpa" min="0" max="10" step="0.01"
+                                                      placeholder="10.0" />
+                                          </div>
+                                    </div>
+                                    <button type="button" class="remove-btn" onclick="removeEducation(this)">
+                                          <i class="fas fa-trash"></i> Remove
+                                    </button>
+                              </div>
+                        </div>
+                  </section>
+
+                  <!-- Step 5: Skills -->
+                  <section class="form-section" id="skills" data-step="5">
+                        <div class="section-header">
+                              <i class="fas fa-tools section-icon"></i>
+                              <h2>Skills & Technologies</h2>
+                        </div>
+                        <div class="skills-grid">
+                              <div class="input-group">
+                                    <label for="technical-skills">Technical Skills</label>
+                                    <input type="text" id="technical-skills"
+                                          placeholder="e.g., JavaScript, Python, React, Node.js" />
+                                    <small>Separate skills with commas</small>
+                              </div>
+                              <div class="input-group">
+                                    <label for="soft-skills">Soft Skills</label>
+                                    <input type="text" id="soft-skills"
+                                          placeholder="e.g., Leadership, Communication, Problem Solving" />
+                                    <small>Separate skills with commas</small>
+                              </div>
+                              <div class="input-group">
+                                    <label for="languages">Languages</label>
+                                    <input type="text" id="languages"
+                                          placeholder="e.g., English (Native), Spanish (Fluent)" />
+                                    <small>Include proficiency levels</small>
+                              </div>
+                              <div class="input-group">
+                                    <label for="certifications">Certifications</label>
+                                    <input type="text" id="certifications"
+                                          placeholder="e.g., AWS Certified, PMP, Google Analytics" />
+                                    <small>Separate certifications with commas</small>
+                              </div>
+                        </div>
+                  </section>
+
+                  <!-- Step 6: Resume Analysis -->
+                  <section class="form-section" id="analysis" data-step="6">
+                        <div class="section-header">
+                              <i class="fas fa-chart-line section-icon"></i>
+                              <h2>Resume Analysis</h2>
+                        </div>
+                        <div class="analysis-grid">
+                              <div class="analysis-card">
+                                    <h3><i class="fas fa-weight"></i> Resume Strength</h3>
+                                    <button class="action-btn primary" onclick="checkResumeWeight()">
+                                          <i class="fas fa-search"></i> Analyze Resume
+                                    </button>
+                                    <div id="resume-score-output" class="output-area"></div>
+                              </div>
+
+                              <div class="analysis-card">
+                                    <h3><i class="fas fa-bullseye"></i> Job Role Alignment</h3>
+                                    <div class="input-group">
+                                          <textarea id="job-desc" rows="6"
+                                                placeholder="Paste the job description here to check how well your resume aligns with the role requirements..."></textarea>
+                                    </div>
+                                    <button class="action-btn secondary" onclick="checkJobAlignment()">
+                                          <i class="fas fa-crosshairs"></i> Check Alignment
+                                    </button>
+                                    <div id="job-alignment-output" class="output-area"></div>
+                              </div>
+                        </div>
+                  </section>
+
+                  <!-- Step 7: Resume Comparison -->
+                  <section class="form-section" id="comparison" data-step="7">
+                        <div class="section-header">
+                              <i class="fas fa-balance-scale section-icon"></i>
+                              <h2>Resume Comparison</h2>
+                        </div>
+                        <div class="comparison-grid">
+                              <div class="comparison-card">
+                                    <h3>Resume A</h3>
+                                    <textarea id="resume-a" rows="8"
+                                          placeholder="Paste the first resume content here..."></textarea>
+                              </div>
+                              <div class="comparison-card">
+                                    <h3>Resume B</h3>
+                                    <textarea id="resume-b" rows="8"
+                                          placeholder="Paste the second resume content here..."></textarea>
+                              </div>
+                        </div>
+                        <button class="action-btn primary full-width" onclick="compareResumes()">
+                              <i class="fas fa-exchange-alt"></i> Compare Resumes
+                        </button>
+                        <div id="comparison-output" class="output-area"></div>
+                  </section>
+                  <!-- Step 8: Generate Resume -->
+                  <section class="form-section" id="generate-resume" data-step="8">
+                        <div class="section-header">
+                              <i class="fas fa-file-export section-icon"></i>
+                              <h2>Build & Preview Resume</h2>
+                        </div>
+                        <button class="action-btn success full-width" onclick="generateResume()">
+                              <i class="fas fa-file-alt"></i> Build My Resume
+                        </button>
+                        <div id="resume-output" style="display: none; margin-top: 30px;">
+                              <div id="generated-resume" class="output-area"></div>
+                        </div>
+                  </section>
+
+                  <!-- Navigation -->
+                  <div class="navigation">
+                        <button type="button" class="nav-btn" id="prev-btn" onclick="previousStep()" disabled>
+                              <i class="fas fa-chevron-left"></i> Previous
+                        </button>
+                        <button type="button" class="nav-btn primary" id="next-btn" onclick="nextStep()">
+                              Next <i class="fas fa-chevron-right"></i>
+                        </button>
+                        <button type="button" class="nav-btn success" id="generate-btn" onclick="generateResume()"
+                              style="display: none;">
+                              <i class="fas fa-file-download"></i> Generate Resume
+                        </button>
+                  </div>
+            </div>
+      </div>
+
+      <!-- Toast Notification -->
+      <div id="toast" class="toast">
+            <div class="toast-content">
+                  <i class="fas fa-check-circle"></i>
+                  <span id="toast-message">Success!</span>
+            </div>
+      </div>
+</body>
+
+</html>

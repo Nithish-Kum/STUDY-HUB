@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hackathons - StudyHub</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <h1>🏆 Hackathons @ StudyHub</h1>
+    <p>Showcase projects, find teammates, join challenges, and grow your skills.</p>
+  </header>
+
+  <main class="main-container">
+    <!-- Hero Section - Full Width Upload -->
+    <section id="upload-project" class="hero-section">
+      <h2>🚀 Upload Your Hackathon Project</h2>
+      <form class="upload-form">
+        <div class="form-row">
+          <input type="text" placeholder="Project Title" required />
+          <input type="text" placeholder="Team Name" />
+        </div>
+        <textarea placeholder="Project Description" required></textarea>
+        <div class="form-row">
+          <input type="text" placeholder="Tech Stack Used" />
+          <input type="text" placeholder="Team Members (comma separated)" />
+        </div>
+        <input type="url" placeholder="GitHub/Live Demo Link" oninvalid="this.setCustomValidity('')"
+          oninput="this.setCustomValidity('')" />
+        <div class="file-upload-wrapper">
+          <input type="file" accept=".zip" />
+          <span class="file-upload-text">📁 Upload Project Files (ZIP only)</span>
+        </div>
+        <button type="submit" class="submit-btn">Submit Project</button>
+      </form>
+    </section>
+
+    <!-- Main Content Grid -->
+    <div class="content-grid">
+      <!-- Left Column -->
+      <div class="left-column">
+        <section id="project-listing" class="featured-section">
+          <h2>🧾 Submitted Projects</h2>
+          <div id="projectListContainer"></div>
+        </section>
+
+        <section id="analytics" class="stats-section">
+          <h2>📊 Project Insights</h2>
+          <p>Track how many people viewed or liked your project. Get real-time feedback and boost your visibility!</p>
+        </section>
+      </div>
+
+      <!-- Center Column -->
+      <div class="center-column">
+        <section id="hackathon-listings" class="listings-section">
+          <h2>📅 Ongoing & Upcoming Hackathons</h2>
+          <div class="hackathon-links">
+            <a href="https://devpost.com/hackathons" target="_blank" class="hackathon-link">
+              <span class="link-icon">🚀</span>
+              <span class="link-text">Devpost Hackathons</span>
+              <span class="link-arrow">→</span>
+            </a>
+            <a href="https://mlh.io/seasons/2025/events" target="_blank" class="hackathon-link">
+              <span class="link-icon">🎓</span>
+              <span class="link-text">MLH 2025 Season</span>
+              <span class="link-arrow">→</span>
+            </a>
+            <a href="https://hackathons.dev/" target="_blank" class="hackathon-link">
+              <span class="link-icon">💻</span>
+              <span class="link-text">Hackathons.dev Directory</span>
+              <span class="link-arrow">→</span>
+            </a>
+            <a href="https://www.hackerearth.com/challenges/hackathon/" target="_blank" class="hackathon-link">
+              <span class="link-icon">🌍</span>
+              <span class="link-text">HackerEarth Challenges</span>
+              <span class="link-arrow">→</span>
+            </a>
+            <a href="https://www.hackathon.com/" target="_blank" class="hackathon-link">
+              <span class="link-icon">🌐</span>
+              <span class="link-text">Global Hackathon Portal</span>
+              <span class="link-arrow">→</span>
+            </a>
+          </div>
+        </section>
+
+        <section id="discussion" class="discussion-section">
+          <h2>💬 Hackathon Discussion Forum</h2>
+          <div class="discussion-form">
+            <textarea placeholder="Ask or share anything about hackathons..." required></textarea>
+            <button id="postMessage" class="post-btn">Post Message</button>
+          </div>
+          <ul id="discussionList" class="discussion-list"></ul>
+        </section>
+
+        <section id="guidelines" class="guidelines-section">
+          <h2>📌 Submission Guidelines</h2>
+          <div class="guidelines-grid">
+            <div class="guideline-item">
+              <span class="guideline-icon">📝</span>
+              <span>Include a detailed README</span>
+            </div>
+            <div class="guideline-item">
+              <span class="guideline-icon">🎥</span>
+              <span>Provide a working demo</span>
+            </div>
+            <div class="guideline-item">
+              <span class="guideline-icon">⏰</span>
+              <span>Submit before deadline</span>
+            </div>
+            <div class="guideline-item">
+              <span class="guideline-icon">🎯</span>
+              <span>Track with countdown timers</span>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Right Column */
+      <div class="right-column">
+        <section id="upload-top-contributor" class="contributor-section">
+          <h2>🏅 Top Contributors</h2>
+          <form id="topContributorForm" class="contributor-form">
+            <input type="text" placeholder="Contributor Name" required />
+            <input type="text" placeholder="Achievement (e.g. 5 Projects)" required />
+            <button type="submit">Add Contributor</button>
+          </form>
+          <ol id="top-contributors-list" class="contributors-list"></ol>
+        </section>
+
+        <section id="upload-wall-of-fame" class="fame-section">
+          <h2>🌟 Wall of Fame</h2>
+          <form id="wallOfFameForm" class="fame-form">
+            <input type="text" placeholder="Name" required />
+            <input type="text" placeholder="Why Famous? (e.g. SIH Winner)" required />
+            <button type="submit">Add Legend</button>
+          </form>
+          <ul id="wall-of-fame-list" class="fame-list"></ul>
+        </section>
+      </div>
+    </div>
+
+    <!-- Bottom Full Width Sections -->
+    <div class="bottom-sections">
+      <section id="kits" class="resources-section">
+        <h2>🧰 Hackathon Starter Kits</h2>
+        <div class="resources-grid">
+          <!-- Content will be populated by JavaScript -->
+        </div>
+      </section>
+
+      <section id="learning" class="learning-section">
+        <h2>📚 Learn & Prepare</h2>
+        <div class="learning-grid">
+          <!-- Content will be populated by JavaScript -->
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 CHADUVUKONDI FIRSTUU. Empowering students to achieve excellence.</p>
+  </footer>
+
+  <!-- Load Firebase and your script after body content -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+  <script src="firebase-config.js"></script>
+  <script type="module" src="script.js"></script>
+</body>
+
+</html>

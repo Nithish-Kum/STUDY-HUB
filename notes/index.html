@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Notes Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard">
+
+        <!-- Main Content Area -->
+        <div class="main-area">
+            <!-- Top Navigation -->
+            <div class="top-nav">
+                <h1 class="logo">Study Notes</h1>
+                <button class="menu-toggle" id="menuToggle">☰</button>
+            </div>
+
+            <!-- Header Section -->
+            <div class="header">
+                <h1>Study Materials Dashboard</h1>
+                <p>Upload, organize, and access your study notes seamlessly</p>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="search-wrapper">
+                <input type="text" class="search-bar" id="searchBar" placeholder="Search your notes...">
+                <ul class="suggestions hidden" id="suggestions"></ul>
+            </div>
+
+            <!-- Upload Section -->
+            <div class="section" id="upload-section">
+                <div class="upload-area">
+                    <label class="upload-button" for="fileUpload">
+                        📁 Upload PDF
+                    </label>
+                    <input type="file" id="fileUpload" accept="application/pdf" style="display: none;">
+                    <p class="upload-info">Drag & drop PDF files or click to browse</p>
+                </div>
+            </div>
+
+            <!-- Notes Grid -->
+            <div class="cards" id="notesGrid">
+                <!-- Notes will be dynamically added here -->
+            </div>
+
+            <!-- Empty State -->
+            <div class="empty-state" id="emptyState">
+                <div class="empty-icon">📚</div>
+                <h3>No study materials yet</h3>
+                <p>Upload your first PDF to get started with organizing your notes</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sidebar Backdrop for Mobile -->
+    <!-- <div class="sidebar-backdrop hidden" id="sidebarBackdrop"></div> -->
+     <!-- Go Back Button -->
+<div style="text-align: center; margin-top: 2rem;">
+    <a href="/landing page/" class="btn btn-primary" style="max-width: 200px; display: inline-block;">
+        🔙 Go Back to Home
+    </a>
+</div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>

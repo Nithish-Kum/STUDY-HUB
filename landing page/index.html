@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StudyHub 2.0 - Student Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <script src="script.js" defer></script>
+</head>
+<body class="light">
+      <header class="top-nav">
+  <h2 class="logo">STUDYHUB</h2>
+  <button id="menuToggleTop" class="menu-toggle">☰</button>
+</header>
+
+  <div class="dashboard">
+    <aside class="sidebar" id="sidebar">
+      <div id="sidebarBackdrop" class="sidebar-backdrop hidden"></div>
+      <div class="sidebar-header">
+        <h2>📘 StudyHub</h2>
+        <button id="menuToggle" class="menu-toggle">☰</button>
+      </div>
+      <nav>
+        <ul>
+          <li onclick="navigateTo('notes')">📚 Notes</li>
+          <li onclick="navigateTo('forum')">💬 Forum</li>
+          <li onclick="navigateTo('hackathons')">🏆 Hackathons</li>
+          <li onclick="navigateTo('resume')">📄 Resume</li>
+          <li onclick="navigateTo('planner')">🗓️ Planner</li>
+          <li onclick="navigateTo('ai-tools')">🤖 AI Tools</li>
+          <li onclick="navigateTo('dashboard')">📊 Dashboard</li>
+        </ul>
+      </nav>
+      <div class="theme-switch">
+        <label>
+          <input type="checkbox" id="themeToggle" />
+          <span class="slider"></span>
+          🌗 Theme
+        </label>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="header">
+        <h1>Welcome back, Student 👋</h1>
+        <p>Let’s get you learning today!</p>
+        <div class="search-wrapper">
+          <input type="text" class="search-bar" placeholder="Search tools, notes, or topics..." id="searchBar" />
+          <ul id="searchSuggestions" class="suggestions hidden">
+            <li>Notes & Study Materials</li>
+            <li>Doubt Discussion Forum</li>
+            <li>Hackathons</li>
+            <li>Resume Builder</li>
+            <li>Study Planner</li>
+            <li>AI Tools</li>
+            <li>Dashboard</li>
+          </ul>
+        </div>
+      </header>
+
+      <section class="cards">
+        <div class="card" onclick="navigateTo('notes')">
+          <h3>📚 Notes & Materials</h3>
+          <p>Organized resources for every subject.</p>
+        </div>
+        <div class="card" onclick="navigateTo('forum')">
+          <h3>💬 Discussion Forum</h3>
+          <p>Ask questions and get answers fast.</p>
+        </div>
+        <div class="card" onclick="navigateTo('hackathons')">
+          <h3>🏆 Hackathons</h3>
+          <p>Upload and showcase your team projects.</p>
+        </div>
+        <div class="card" onclick="navigateTo('resume')">
+          <h3>📄 Resume Builder</h3>
+          <p>Create smart and ATS-ready resumes.</p>
+        </div>
+        <div class="card" onclick="navigateTo('planner')">
+          <h3>🗓️ Study Planner</h3>
+          <p>Set your timetable and reminders.</p>
+        </div>
+        <div class="card" onclick="navigateTo('ai-tools')">
+          <h3>🤖 AI Tools</h3>
+          <p>Study smarter with AI-driven help.</p>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

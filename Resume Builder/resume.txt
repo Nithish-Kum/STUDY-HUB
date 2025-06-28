@@ -1,0 +1,60 @@
+ Job Description (for a Backend Developer role):
+We’re hiring a Backend Engineer with strong experience in building scalable 
+microservices using Python and Django. You should have a solid understanding of 
+RESTful APIs, database optimization (PostgreSQL), and CI/CD pipelines. Familiarity
+ with Docker, Kubernetes, and cloud platforms like AWS is a plus. You’ll work in an 
+Agile environment and collaborate with frontend, DevOps, and product teams to deliver 
+high-performance backend solutions.
+
+---------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------
+🧑‍💻 Resume Summary (matching candidate):
+Results-driven backend engineer with over 4 years of experience 
+developing scalable APIs and microservices. Expertise in Python, Django, RESTful APIs, and PostgreSQL. 
+Demonstrated success leading backend architecture for cloud-native applications. Passionate about 
+optimizing backend systems for performance and security, with a track record of reducing query times
+ by 40% and improving API uptime.
+
+---------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------
+
+Resume A (Software Developer)
+Professional Summary
+Detail-oriented and innovative software developer with 3+ years of experience in 
+designing and implementing full-stack web applications using JavaScript, React, Node.js, 
+and Python. Strong background in agile methodologies and DevOps practices. Adept at collaborating
+ across teams to deliver scalable, maintainable software solutions. Proven ability to improve
+ performance and reduce system errors by 30% through optimized code and testing strategies.
+
+Skills
+JavaScript, React, Node.js, Express, MongoDB, Git, CI/CD, Agile, AWS, REST APIs
+
+Experience
+Software Engineer | XYZ Tech | 2021–Present
+
+Built and deployed full-stack applications serving over 10,000 users.
+
+Integrated third-party APIs to enable real-time data processing.
+
+Collaborated with UI/UX designers and backend engineers for seamless deployment.
+
+
+---------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------
+ Resume B (Backend Engineer)
+Professional Summary
+Results-driven backend engineer with over 4 years of experience developing scalable APIs and microservices. Expertise in Python, Django, RESTful APIs, and PostgreSQL. Demonstrated success leading backend architecture for cloud-native applications. Passionate about optimizing backend systems for performance and security, with a track record of reducing query times by 40% and improving API uptime.
+
+Skills
+Python, Django, Flask, PostgreSQL, Docker, Kubernetes, REST APIs, Git, Unit Testing, Agile
+
+Experience
+Backend Developer | CloudCore Solutions | 2020–Present
+
+Designed and deployed REST APIs supporting a SaaS platform with 50K+ users.
+
+Migrated monolithic services to microservices, enhancing system modularity.
+
+Implemented CI pipelines to reduce deployment time by 50%.
+
+

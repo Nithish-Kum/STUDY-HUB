@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Doubt Discussion Forum - B.Tech</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Firebase Core and Firestore -->
+  <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <div class="main-container">
+    <!-- Left Column: Form -->
+    <div class="left-column">
+      <div class="container">
+        <h2>Doubt Discussion Forum (B.Tech)</h2>
+        <form id="doubtForm">
+          <label for="department">Department:</label>
+          <select id="department" name="department" required>
+            <option value="">Select Department</option>
+            <option value="CSE">CSE</option>
+            <option value="ECE">ECE</option>
+            <option value="EEE">EEE</option>
+            <option value="MECH">MECH</option>
+            <option value="CIVIL">CIVIL</option>
+            <option value="IT">IT</option>
+          </select>
+          <label for="subject">Subject:</label>
+          <select id="subject" name="subject" required>
+            <option value="">Select Subject</option>
+            <option value="DSA">Data Structures</option>
+            <option value="OS">Operating Systems</option>
+            <option value="DBMS">DBMS</option>
+            <option value="CN">Computer Networks</option>
+            <option value="Maths">Mathematics</option>
+            <option value="Mechanics">Mechanics</option>
+          </select>
+          <label for="description">Detailed Description:</label>
+          <textarea id="description" name="description" rows="5" required></textarea>
+          <label for="attachment">Upload File (optional):</label>
+          <input type="file" id="attachment" name="attachment" />
+          <label><input type="checkbox" id="anonymous" name="anonymous" /> Post Anonymously</label>
+          <label for="priority">Priority:</label>
+          <select id="priority" name="priority">
+            <option value="Normal">Normal</option>
+            <option value="Important">Important</option>
+            <option value="Urgent">Urgent</option>
+          </select>
+          <button type="submit">Submit Doubt</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Right Column: Doubts -->
+    <div class="right-column">
+      <div class="container doubt-list">
+  <h2>Submitted Doubts</h2>
+<label for="sortSelect" style="display: block; margin-top: 15px; font-weight: 600;">Sort By:</label>
+<select id="sortSelect" style="padding: 10px; margin-bottom: 20px; border-radius: 6px; border: 1px solid #ccc;">
+  <option value="recent">Most Recent</option>
+  <option value="upvotes">Most Upvoted</option>
+  <option value="answers">Most Answers</option>
+</select>
+  <div id="doubtDisplay"></div>
+<script>
+  async function deleteDoubt(doubtId) {
+    if (confirm("Are you sure you want to delete this doubt and all its answers?")) {
+      const answersSnapshot = await db.collection("doubts").doc(doubtId).collection("answers").get();
+      const batch = db.batch();
+      answersSnapshot.forEach(doc => batch.delete(doc.ref));
+      await batch.commit();
+      await db.collection("doubts").doc(doubtId).delete();
+      renderDoubts();
+    }
+  }
+</script>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js">document.getElementById("sortSelect").addEventListener("change", renderDoubts);
+</script>
+</body>
+</html>
